@@ -44,7 +44,6 @@ public class Propriedade extends Lugar{
                     System.out.println(jogador.nome + " optou por não comprar " + nome + ".");
                 }
                 
-                scanner.close();
             } else {
                 System.out.println("Você não possui dinheiro suficiente para comprar " + nome + ".");
             }

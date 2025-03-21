@@ -176,9 +176,7 @@ public class Monopoly {
 			}
 		}
 
-		// Volta ao menu de comandos
-		System.out.println("Comandos disponíveis: [jogar][status][sair]");
-		System.out.print("Entre com um comando: ");
+		
 	}
 
 }
