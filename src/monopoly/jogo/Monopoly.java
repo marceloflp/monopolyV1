@@ -111,11 +111,11 @@ public class Monopoly {
 		if (jogador.estaFalido()) {
 			System.out.println(jogador.nome + " entrou em falência e foi eliminado do jogo.");
 			// Devolve propriedades ao banco
-			for (Lugar l : tabuleiro.getLugares().values()) {
-				if (l instanceof Propriedade && ((Propriedade) l).dono == jogador) {
-					((Propriedade) l).dono = null;
-				}
-			}
+			for (Propriedade propriedade : tabuleiro.getPropriedades()) {
+	            if (propriedade.getDono() == jogador) {
+	                propriedade.setDono(null); // Remove o dono da propriedade
+	            }
+	        }
 			jogadores.remove(jogador);
 		}
 	}
@@ -141,7 +141,7 @@ public class Monopoly {
 	private int calcularAluguel(Propriedade propriedade) {
 		if (propriedade.getNome().contains("Railroad")) {
 			int numFerrovias = 0;
-			for (Propriedade p : tabuleiro.getPropriedades().values()) {
+			for (Propriedade p : tabuleiro.getPropriedade().values()) {
 				if (p.dono == propriedade.dono && p.getNome().contains("Railroad"))
 					numFerrovias++;
 			}
@@ -162,7 +162,7 @@ public class Monopoly {
 
 		// Títulos possuídos
 		System.out.println("Títulos:");
-		for (Propriedade propriedade : tabuleiro.getPropriedades().values()) {
+		for (Propriedade propriedade : tabuleiro.getPropriedade().values()) {
 			if (propriedade.dono == jogador) {
 				if (propriedade.getNome().contains("Railroad")) {
 					System.out.println(
