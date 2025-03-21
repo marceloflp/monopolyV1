@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Propriedade extends Lugar{
 	
-	public int preco;
-	public int aluguel;
+	private int preco;
+	private int aluguel;
 	private int hipoteca;
 	private int precoCasa;
-	public Jogador dono;
+	private Jogador dono;
 
 	public Propriedade(String nome, int preco, int aluguel, int precoCasa, int hipoteca) {
 	    super(nome);

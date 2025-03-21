@@ -142,12 +142,12 @@ public class Monopoly {
 		if (propriedade.getNome().contains("Railroad")) {
 			int numFerrovias = 0;
 			for (Propriedade p : tabuleiro.getPropriedade().values()) {
-				if (p.dono == propriedade.dono && p.getNome().contains("Railroad"))
+				if (p.getDono() == propriedade.getDono() && p.getNome().contains("Railroad"))
 					numFerrovias++;
 			}
 			return 25 * numFerrovias;
 		}
-		return propriedade.aluguel; // Aluguel padrão para outras propriedades
+		return propriedade.getAluguel(); // Aluguel padrão para outras propriedades
 	}
 
 	public void exibirStatus(Jogador jogador) {
@@ -163,7 +163,7 @@ public class Monopoly {
 		// Títulos possuídos
 		System.out.println("Títulos:");
 		for (Propriedade propriedade : tabuleiro.getPropriedade().values()) {
-			if (propriedade.dono == jogador) {
+			if (propriedade.getDono() == jogador) {
 				if (propriedade.getNome().contains("Railroad")) {
 					System.out.println(
 							"[" + propriedade.getNome() + "] – ferrovia, corrida " + calcularAluguel(propriedade));
@@ -171,7 +171,7 @@ public class Monopoly {
 						|| propriedade.getNome().equals("Water Works")) {
 					System.out.println("[" + propriedade.getNome() + "] – serviço público");
 				} else {
-					System.out.println("[" + propriedade.getNome() + "] – propriedade, aluguel " + propriedade.aluguel);
+					System.out.println("[" + propriedade.getNome() + "] – propriedade, aluguel " + propriedade.getAluguel());
 				}
 			}
 		}
